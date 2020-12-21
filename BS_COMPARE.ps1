@@ -1,6 +1,6 @@
 function BS-Compare{
 	$log = Get-Content '.\cue_logger.log'; 
-	$csv = Import-Csv -Path '.NETCUES.csv';
+	$csv = Import-Csv -Path '.\NETCUES.csv';
 	$out = $none 
 	$csv | ForEach-Object  {
 		if (![string]::IsNullOrEmpty($_.'PROGRAM NAME')){
