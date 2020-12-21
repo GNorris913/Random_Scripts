@@ -1,4 +1,4 @@
-function BS-Compare{
+function Compare-BSLog{
 	$log = Get-Content '.\cue_logger.log'; 
 	$csv = Import-Csv -Path '.\NETCUES.csv';
 	$out = $none 
