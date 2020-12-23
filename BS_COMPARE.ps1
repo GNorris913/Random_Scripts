@@ -32,6 +32,7 @@ function Compare-BSLog{
 			}
 		}
 	};
+	Clear-Content -Path ".\sat_svcs.txt";
 	foreach ($line in $out){
 		Write-Host $line;
 		Add-Content -Path ".\sat_svcs.txt" -Value $line
