@@ -1,0 +1,36 @@
+** DELETE DUPLICATE EMAILS, KEEP HIGHEST INDEX **
+
+DELETE p1 FROM Person p1,
+    Person p2
+WHERE
+    p1.Email = p2.Email AND p1.Id > p2.Id
+	
+	
+	
+**** SELECT SECOND HIGHEST SALARY ***** (Create subtable to handle cases where table is less than 2)
+SELECT 
+(SELECT DISTINCT Salary FROM Employee ORDER BY Salary DESC LIMIT 1,1) AS SecondHighestSalary;
+
+
+**** SELECT Nth HIGHEST SALARY ******
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+    SET N=N-1;
+  RETURN (
+        SELECT (SELECT DISTINCT Salary from Employee ORDER BY Salary DESC LIMIT N,1)
+      
+  );
+END
+
+Select DISTINCT t1.Num from Logs t1, Logs t2, Logs t3 
+HAVING (t1.Id = t2.Id -1 AND t1.Id = t3.Id-2 AND t1.Num = t2.Num AND t1.Num = t3.Num) AS ConsecutiveNums;
+
+********** CONSECUTIVE NUMBERS *****************
+# Write your MySQL query statement below
+Select DISTINCT t1.Num AS ConsecutiveNums 
+FROM Logs t1, Logs t2, Logs t3 
+WHERE 
+t1.Id = t2.Id -1 
+AND t1.Id = t3.Id-2 
+AND t1.Num = t2.Num 
+AND t1.Num = t3.Num;
