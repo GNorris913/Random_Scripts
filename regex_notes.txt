@@ -1,0 +1,27 @@
+    '''
+    REGEX NOTES: string literal required as regex argument r''
+    . = match any character except newline
+    * = match as many repetitions of pattern as possible (ab* will match a, ab, abbbbb)
+    ^ = start at beginning
+    + = match 1 or more repetitions of preceding regex (ab+ matches 'ab', 'abbbb' but not 'a') 
+    $ = match to end of string or line
+    ? = match 0 or 1 repetitions of RE. (ab? will match either a or ab)
+    *? +? ?? 
+        * + ? are GREEDY, will match as much text as possible
+        Adding ? after the qualifier denotes NON-GREEDY, as few chars as possible
+    {s,e} = repeat between s and e times - Greedy
+    {s,e} = non greedy
+    [0-9A-Fa-f] = which characters are in a set
+    A|B = Pipe which creates and either-or regex. Will attempt match from left to right.
+        A|B (G T Y B A) = B    (G T A B) = A
+    (?<VAR>...)
+    
+        Context of reference to group "quote" ||  Ways to reference it
+                
+    
+    
+     re.compile() = turns string literal into regex obect.
+        x = re.compile()
+        x.match() - match from beginning
+        x.search() - match anywhere in string  
+    '''
